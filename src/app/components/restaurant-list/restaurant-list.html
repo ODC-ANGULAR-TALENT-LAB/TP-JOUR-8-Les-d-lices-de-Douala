@@ -1,0 +1,8 @@
+<section class="grid">
+  @for (restaurant of restaurants(); track restaurant.id) {
+    <app-restaurant-card
+      [restaurant]="restaurant"
+      (restaurantRated)="restaurantRated.emit($event)"
+    />
+  }
+</section>
