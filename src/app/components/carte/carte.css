@@ -103,18 +103,90 @@
 }
 
 .plat {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.plat--ouvert {
+  box-shadow: 0 2px 10px rgba(232, 89, 12, 0.18);
+}
+
+/* Ligne cliquable (bouton occupant toute la largeur) */
+.plat__ligne {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 0.25rem 1rem;
   padding: 0.9rem 1.1rem;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-.plat--indisponible {
+.plat__ligne:hover {
+  background: #fff7f2;
+}
+
+.plat--indisponible .plat__ligne {
   opacity: 0.55;
+}
+
+/* Panneau de détail */
+.plat__details {
+  padding: 0 1.1rem 1rem;
+  border-top: 1px solid #f0e5df;
+}
+
+.plat__description {
+  margin: 0.75rem 0 0.5rem;
+  color: #444;
+}
+
+.plat__restos-label {
+  margin: 0.5rem 0 0.35rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #1f1f29;
+}
+
+.plat__restos-vide {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.plat__restos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.plat__resto {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.4rem 0.6rem;
+  background: #faf3ef;
+  border-radius: 6px;
+  gap: 0.5rem;
+}
+
+.plat__resto-nom {
+  font-weight: 600;
+}
+
+.plat__resto-quartier {
+  font-size: 0.8rem;
+  color: #888;
 }
 
 .plat__entete {

@@ -9,4 +9,8 @@ export interface Plat {
   prix: number;
   categorie: Categorie;
   disponible: boolean;
+  /** Description du plat, affichée au clic. */
+  description: string;
+  /** Ids des restaurants (voir Restaurant) qui proposent ce plat. */
+  restaurantIds: number[];
 }

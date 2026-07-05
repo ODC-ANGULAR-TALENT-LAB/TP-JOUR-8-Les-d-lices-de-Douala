@@ -47,17 +47,49 @@
     } @else {
       <ul class="carte__liste">
         @for (plat of menuService.platsFiltres(); track plat.id) {
-          <li class="plat" [class.plat--indisponible]="!plat.disponible">
-            <div class="plat__entete">
-              <span class="plat__nom">{{ plat.nom }}</span>
-              @if (!plat.disponible) {
-                <span class="plat__badge">Épuisé</span>
-              }
-            </div>
-            <span class="plat__categorie">{{ plat.categorie }}</span>
-            <span class="plat__prix">
-              {{ plat.prix | currency: 'XAF' : 'symbol' : '1.0-0' }}
-            </span>
+          <li
+            class="plat"
+            [class.plat--indisponible]="!plat.disponible"
+            [class.plat--ouvert]="platSelectionne()?.id === plat.id"
+          >
+            <button
+              type="button"
+              class="plat__ligne"
+              [attr.aria-expanded]="platSelectionne()?.id === plat.id"
+              (click)="basculer(plat)"
+            >
+              <div class="plat__entete">
+                <span class="plat__nom">{{ plat.nom }}</span>
+                @if (!plat.disponible) {
+                  <span class="plat__badge">Épuisé</span>
+                }
+              </div>
+              <span class="plat__categorie">{{ plat.categorie }}</span>
+              <span class="plat__prix">
+                {{ plat.prix | currency: 'XAF' : 'symbol' : '1.0-0' }}
+              </span>
+            </button>
+
+            @if (platSelectionne()?.id === plat.id) {
+              <div class="plat__details">
+                <p class="plat__description">{{ plat.description }}</p>
+                <p class="plat__restos-label">Disponible dans :</p>
+                @if (restaurantsDuPlat().length === 0) {
+                  <p class="plat__restos-vide">
+                    Aucun restaurant partenaire ne propose ce plat pour le moment.
+                  </p>
+                } @else {
+                  <ul class="plat__restos">
+                    @for (resto of restaurantsDuPlat(); track resto.id) {
+                      <li class="plat__resto">
+                        <span class="plat__resto-nom">{{ resto.name }}</span>
+                        <span class="plat__resto-quartier">{{ resto.district }}</span>
+                      </li>
+                    }
+                  </ul>
+                }
+              </div>
+            }
           </li>
         }
       </ul>
