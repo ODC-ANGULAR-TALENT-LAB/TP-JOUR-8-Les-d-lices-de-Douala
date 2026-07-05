@@ -1,11 +1,4 @@
 <header class="header">
-  <h1 class="header__title">Délices de Douala</h1>
-  <div class="header__stats">
-    <p class="header__counter">
-      ★ {{ ratedCount() }} / {{ totalCount() }} restaurants notés
-    </p>
-    <p class="header__average">
-      Moyenne : {{ averageRating() | number: '1.1-1' }} / 5
-    </p>
-  </div>
+  <h1 class="header__title">{{ restaurantName() }}</h1>
+  <p class="header__counter">{{ platsDisponibles() }} plats à la carte</p>
 </header>

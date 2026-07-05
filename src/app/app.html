@@ -1,12 +1,8 @@
 <app-header
-  [ratedCount]="ratedCount()"
-  [totalCount]="totalCount()"
-  [averageRating]="averageRating()"
+  [restaurantName]="restaurantName"
+  [platsDisponibles]="platsDisponibles()"
 />
 
 <main>
-  <app-restaurant-list
-    [restaurants]="restaurants()"
-    (restaurantRated)="onRestaurantRated($event)"
-  />
+  <app-carte />
 </main>
