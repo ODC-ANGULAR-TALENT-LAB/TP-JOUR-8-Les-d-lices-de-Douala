@@ -1,0 +1,25 @@
+<h1>Délices de Douala — Inscriptions</h1>
+
+@if (clients().length === 0) {
+  <p>Aucun client inscrit.</p>
+} @else {
+  <ul>
+    @for (client of clients(); track $index; let i = $index) {
+      <li class="ligne">
+        <span>{{ client }}</span>
+        <span class="actions">
+          <button type="button" (click)="modifier(i)">Modifier</button>
+          <button type="button" (click)="supprimer(i)">Supprimer</button>
+        </span>
+      </li>
+    }
+  </ul>
+}
+
+<input type="text" name="nom" [(ngModel)]="nom" required />
+<button type="button"
+[disabled]="!nom.trim()"
+(click)="enregistrer()">Ajouter</button>
+@if (!nom.trim()) {
+<small class="erreur">Le nom est obligatoire.</small>
+}

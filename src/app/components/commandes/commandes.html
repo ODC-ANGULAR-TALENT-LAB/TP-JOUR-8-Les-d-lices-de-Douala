@@ -1,0 +1,21 @@
+<section class="menu">
+  <h2>Menu Délices de Douala (pour le TP sur les INPUT et OUTPUT)</h2>
+
+  @for (plat of plats(); track plat.id) {
+    <app-plat-card [plat]="plat" (ajouter)="ajouterPlat($event)" />
+  }
+
+  <h2>Ma commande</h2>
+  @if (commandes().length > 0) {
+    <ul class="commande">
+      @for (ligne of commandes(); track ligne.id) {
+        <app-ligne-commande
+          [ligne]="ligne"
+          (incrementer)="incrementerLigne($event)"
+          (decrementer)="decrementerLigne($event)" />
+      }
+    </ul>
+  } @else {
+    <p>Aucun plat sélectionné pour le moment.</p>
+  }
+</section>

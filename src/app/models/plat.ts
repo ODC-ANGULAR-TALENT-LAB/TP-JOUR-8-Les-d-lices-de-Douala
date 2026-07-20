@@ -14,3 +14,10 @@ export interface Plat {
   /** Ids des restaurants (voir Restaurant) qui proposent ce plat. */
   restaurantIds: number[];
 }
+
+/** Une ligne de la commande en cours : un plat et sa quantité. */
+export interface LigneCommande {
+  id: string;
+  plat: Plat;
+  quantite: number;
+}

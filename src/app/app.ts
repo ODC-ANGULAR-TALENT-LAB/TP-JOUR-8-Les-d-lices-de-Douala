@@ -4,10 +4,12 @@ import { RestaurantList } from './components/restaurant-list/restaurant-list';
 import { Carte } from './components/carte/carte';
 import { RatingChange, Restaurant } from './models/restaurant';
 import { environment } from '../environments/environment';
+import { Commandes } from './components/commandes/commandes';
+import { Inscription } from './inscription/inscription';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, RestaurantList, Carte],
+  imports: [Header, RestaurantList, Carte, Commandes, Inscription],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,6 @@
+<article class="carte-plat">
+  <h3>{{ plat().nom }}</h3>
+  <p>{{ plat().description }}</p>
+  <p>Prix: {{ plat().prix }} FCFA</p>
+</article>
+<button (click)="ajouter.emit(plat())">Ajouter</button>

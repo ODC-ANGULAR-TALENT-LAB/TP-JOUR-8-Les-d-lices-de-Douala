@@ -1,0 +1,11 @@
+<li class="ligne-commande">
+  <span class="nom">{{ ligne().plat.nom }}</span>
+
+  <span class="controle-quantite">
+    <button (click)="decrementer.emit(ligne())">-</button>
+    <span class="quantite">x{{ ligne().quantite }}</span>
+    <button (click)="incrementer.emit(ligne())">+</button>
+  </span>
+
+  <span class="total">{{ ligne().plat.prix * ligne().quantite }} FCFA</span>
+</li>
